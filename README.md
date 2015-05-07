@@ -1,0 +1,2 @@
+# larapus
+Aplikasi Perpustakaan Laravel
