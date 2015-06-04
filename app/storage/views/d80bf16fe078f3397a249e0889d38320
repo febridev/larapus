@@ -1,0 +1,19 @@
+<?php $__env->startSection('title'); ?>
+    <?php echo $title; ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('nav'); ?>
+    <li><a href="#">Buku</a></li>
+    <li><a href="#">Member</a></li>
+    <li><a href="#">Pinjaman</a></li>
+<?php $__env->stopSection(); ?>
+
+
+<?php $__env->startSection('breadcrumb'); ?>
+    <li><?php echo $title; ?></li>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+    Selamat datang di menu administrasi larapus. silahkan pilih menu administrasi yang di inginkan
+<?php $__env->stopSection(); ?>

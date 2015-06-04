@@ -4,7 +4,11 @@
 	"keywords": ["framework", "laravel"],
 	"license": "MIT",
 	"require": {
-		"laravel/framework": "4.2.*"
+		"laravel/framework": "4.2.*",
+		"cartalyst/sentry": "2.1.4",
+		"uikit/uikit": "2.8.*",
+		"components/jquery": "2.1.0",
+		"way/generators": "2.6.*"
 	},
 	"autoload": {
 		"classmap": [
@@ -30,7 +34,8 @@
 		]
 	},
 	"config": {
-		"preferred-install": "dist"
+		"preferred-install": "dist",
+		"components-dir": "public/components"
 	},
 	"minimum-stability": "stable"
 }
