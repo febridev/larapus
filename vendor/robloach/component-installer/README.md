@@ -1,10 +1,8 @@
-Component Installer for Composer [![Build Status](https://secure.travis-ci.org/RobLoach/component-installer.png?branch=master)](http://travis-ci.org/RobLoach/component-installer)
-================================
+# Component Installer for [Composer](http://getcomposer.org) [![Build Status](https://secure.travis-ci.org/RobLoach/component-installer.png?branch=master)](http://travis-ci.org/RobLoach/component-installer)
 
 Allows installation of Components via [Composer](http://getcomposer.org).
 
-Usage
------
+## Usage
 
 To install a Component with Composer, add the Component to your *composer.json*
 `require` key. The following will install both [jQuery](http://jquery.com) and
@@ -14,7 +12,8 @@ To install a Component with Composer, add the Component to your *composer.json*
 {
     "require": {
         "components/jquery": "1.9.*",
-        "components/normalize.css": "2.*"
+        "components/normalize.css": "2.*",
+        "robloach/component-installer": "0.1.*"
     }
 }
 ```
@@ -51,8 +50,7 @@ file is also compiled, including all Component stylesheets:
 </html>
 ```
 
-Configuration
--------------
+## Configuration
 
 There are a number of ways to alter how Components are installed and used.
 
@@ -98,12 +96,31 @@ RequireJS documentation.
 
 Defaults to `components`.
 
-Creating a Component
---------------------
+### Assetic filters
+
+``` json
+{
+    "require": {
+        "components/jquery": "*"
+    },
+    "config": {
+        "component-dir": "public/assets",
+        "component-baseurl": "/assets",
+        "component-scriptFilters": {
+            "\\Assetic\\Filter\\GoogleClosure\\CompilerApiFilter": []
+        },
+        "component-styleFilters": {
+            "\\Assetic\\Filter\\CssImportFilter": []
+        }
+    }
+}
+```
+
+## Creating a Component
 
 To set up a Component to be installed with Component Installer, have it
 `require` the package *robloach/component-installer* and set the `type` to
-*component*:
+*component*, but it is not necessary:
 
 ``` json
 {
@@ -226,7 +243,7 @@ define use of [html5shiv](https://github.com/aFarkas/html5shiv):
                         "scripts": [
                             "dist/html5shiv.js"
                         ]
-                    },
+                    }
                 },
                 "require": {
                     "robloach/component-installer": "*"
@@ -237,8 +254,59 @@ define use of [html5shiv](https://github.com/aFarkas/html5shiv):
 }
 ```
 
-Not Invented Here
------------------
+### Packages Without Component Support In *composer.json*
+
+Using [`extra`](https://getcomposer.org/doc/04-schema.md#extra)
+in *composer.json* allows use of Component Installer in packages that don't
+explicitly provide support for component, but do ship with their own *composer.json*. 
+Using `extra` with packages that ship with Component Installer, will override component's settings for that package.
+
+``` json
+{
+    "require": {
+        "datatables/datatables": "~1.10"
+    },
+    "extra": {
+        "component": {
+            "datatables/datatables": {
+                "scripts": [
+                    "media/js/jquery.dataTables.js"
+                ],
+                "styles": [
+                    "media/css/jquery.dataTables.css"
+                ],
+                "files": [
+                    "media/js/jquery.dataTables.min.js",
+                    "media/css/jquery.dataTables.min.css",
+                    "media/images/*.png"
+                ]
+            }
+        }
+    }
+}
+```
+
+### Backwards Compatibility
+
+Newer versions of composer made backwards incompatible changes to the way
+plugins work. In order for `component-installer` to work on newer versions of
+Composer, a backwards incompatibile fix had to be made. If you are using an
+older version of composer, please make sure to explicitly require version
+`0.0.12` in your root `composer.json` file. Example:
+
+``` json
+{
+    "require": {
+	"robloach/component-installer": "0.0.12",
+        "components/jquery": "*"
+    },
+    "config": {
+        "component-dir": "public"
+    }
+}
+```
+
+## Not Invented Here
 
 There are many other amazing projects from which Component Installer was
 inspired. It is encouraged to take a look at some of the [other great package
@@ -251,8 +319,7 @@ management systems](http://github.com/wilmoore/frontend-packagers):
 * [Ender](http://ender.jit.su)
 * etc
 
-License
--------
+## License
 
 Component Installer is licensed under the MIT License - see LICENSE.md for
 details.

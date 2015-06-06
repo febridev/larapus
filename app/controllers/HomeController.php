@@ -21,4 +21,39 @@ class HomeController extends BaseController {
     {
         $this->layout->content = View::make('dashboard.index')->withTitle('Dashboard');
     }
+	
+	public function authenticate()
+	{
+		//ambil credentials dari $POST variable 
+		$credentials = array(
+			'email' => Input::get('email'),
+			'password' => Input::get('password'),
+		);
+		try
+		{
+			//authentikasi user 
+			$user = Sentry::authenticate($credentials, false);
+			//redirect user ke dashboard
+			return Redirect::intended('dashboard');
+		}
+		
+		catch (Cartalyst\Sentry\Users\WrongPasswordException $e)
+		{
+			return Redirect::back()->with('errorMessage','Password Yang Anda Masukkan Salah');
+		}
+		catch (Exception $e)
+		{
+			//kembalikan user ke halaman login
+			return Redirect::back()->with('errorMessage',trans('Akun Dengan Email Tersebut tidak di temukan di sistem kami'));
+		}
+	}
+	
+	//fungsi logout
+	public function logout()
+	{
+		//logout user
+		Sentry::logout();
+		//redirect kehalaman login
+		return Redirect::to('login')->with('successMessage','Anda Berhasi Logout');
+	}
 }

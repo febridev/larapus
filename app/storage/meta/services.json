@@ -26,7 +26,8 @@
         "Illuminate\\Validation\\ValidationServiceProvider",
         "Illuminate\\View\\ViewServiceProvider",
         "Illuminate\\Workbench\\WorkbenchServiceProvider",
-        "Cartalyst\\Sentry\\SentryServiceProvider"
+        "Cartalyst\\Sentry\\SentryServiceProvider",
+        "Way\\Generators\\GeneratorsServiceProvider"
     ],
     "eager": [
         "Illuminate\\Cookie\\CookieServiceProvider",
@@ -36,7 +37,8 @@
         "Illuminate\\Session\\SessionServiceProvider",
         "Illuminate\\View\\ViewServiceProvider",
         "Illuminate\\Workbench\\WorkbenchServiceProvider",
-        "Cartalyst\\Sentry\\SentryServiceProvider"
+        "Cartalyst\\Sentry\\SentryServiceProvider",
+        "Way\\Generators\\GeneratorsServiceProvider"
     ],
     "deferred": {
         "artisan": "Illuminate\\Foundation\\Providers\\ArtisanServiceProvider",

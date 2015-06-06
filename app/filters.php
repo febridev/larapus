@@ -35,16 +35,9 @@ App::after(function($request, $response)
 
 Route::filter('auth', function()
 {
-	if (Auth::guest())
+	if (!Sentry::check())
 	{
-		if (Request::ajax())
-		{
-			return Response::make('Unauthorized', 401);
-		}
-		else
-		{
-			return Redirect::guest('login');
-		}
+		return Redirect::guest('login')->with('errorMessage','Silahkan Login Terlebih Dahulu');
 	}
 });
 

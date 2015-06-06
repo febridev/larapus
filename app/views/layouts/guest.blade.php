@@ -12,12 +12,13 @@
       <nav class="uk-navbar">
          <a href="#" class="uk-navbar-brand uk-hidden-small">Larapus</a>
          <div class="uk-navbar-flip uk-navbar-content">
-            <a href="#">Login</a>
+            <a href="{{ URL::to('login')}}">Login</a>
             <a href="#">Daftar</a>
          </div>
           <div class="uk-navbar uk-navbar-center uk-visible-small">Larapus</div>
       </nav>
       <div class="uk-container-center uk-margin-top">
+          @include('layouts.partials.alert')
           @yield('content')
       </div>
    </div>
