@@ -35,6 +35,7 @@ return array(
     'Crypt' => array($vendorDir . '/phpseclib/phpseclib/phpseclib'),
     'ComponentInstaller' => array($vendorDir . '/robloach/component-installer/src'),
     'ClassPreloader' => array($vendorDir . '/classpreloader/classpreloader/src'),
+    'Chumper\\Datatable' => array($vendorDir . '/chumper/datatable/src'),
     'Cartalyst\\Sentry' => array($vendorDir . '/cartalyst/sentry/src'),
     'Carbon' => array($vendorDir . '/nesbot/carbon/src'),
     'Boris' => array($vendorDir . '/d11wtq/boris/lib'),

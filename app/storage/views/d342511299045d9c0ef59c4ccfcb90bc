@@ -1,0 +1,41 @@
+<?php $__env->startSection('asset'); ?>
+	<link rel="stylesheet" href="<?php echo asset('packages/datatables/css/jquery.dataTables.css'); ?>">
+	<script src="<?php echo asset('packages/datatables/js/jquery.dataTables.js'); ?>"></script>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('title'); ?>
+	<?php echo $title; ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('breadcrumb'); ?>
+	<li>Dashboard</li>
+	<li><?php echo $title; ?></li>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+ Tambah Author <br>
+ <?php echo Datatable::table()
+ 	->addColumn('id','Nama','')
+	->setOptions('aoColumnDefs', array(
+		array(
+			'bVisible' => false,
+			'aTargets' => [0]
+		),
+		array(
+			'sTitle' => 'Nama',
+			'aTargets' => [1]
+		),
+		
+		array(
+			'bSortable' => false,
+			'aTargets' => [2]
+		)
+	))
+	->setOptions('bProcessing', true)
+	->setUrl(route('admin.authors.index'))
+	->render('datatable.uikit'); ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

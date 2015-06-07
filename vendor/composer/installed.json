@@ -2052,5 +2052,85 @@
         ],
         "description": "Symfony Filesystem Component",
         "homepage": "https://symfony.com"
+    },
+    {
+        "name": "datatables/datatables",
+        "version": "1.10.7",
+        "version_normalized": "1.10.7.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/DataTables/DataTables.git",
+            "reference": "fc64e71e1cee289da199982d3196b7e43afc0e52"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/DataTables/DataTables/zipball/fc64e71e1cee289da199982d3196b7e43afc0e52",
+            "reference": "fc64e71e1cee289da199982d3196b7e43afc0e52",
+            "shasum": ""
+        },
+        "time": "2015-04-30 14:08:43",
+        "type": "library",
+        "installation-source": "dist",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "description": "DataTables is a plug-in for the jQuery Javascript library. It is a highly flexible tool, based upon the foundations of progressive enhancement, which will add advanced interaction controls to any HTML table.",
+        "homepage": "http://www.datatables.net/"
+    },
+    {
+        "name": "chumper/datatable",
+        "version": "2.3",
+        "version_normalized": "2.3.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Chumper/Datatable.git",
+            "reference": "cff842783f3f4af60c2be295435b2bd812510ef5"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Chumper/Datatable/zipball/cff842783f3f4af60c2be295435b2bd812510ef5",
+            "reference": "cff842783f3f4af60c2be295435b2bd812510ef5",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/config": "4.*",
+            "illuminate/support": "4.*",
+            "illuminate/view": "4.*",
+            "php": ">=5.3.0"
+        },
+        "require-dev": {
+            "mockery/mockery": "dev-master",
+            "orchestra/testbench": "2.1.*",
+            "phpunit/phpunit": "3.7.*"
+        },
+        "time": "2014-05-11 14:53:49",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Chumper\\Datatable": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Nils Plaschke",
+                "email": "github@nilsplaschke.de",
+                "homepage": "http://nilsplaschke.de",
+                "role": "Developer"
+            }
+        ],
+        "description": "This is a laravel 4 package for the server and client side of datatablaes at http://datatables.net/",
+        "homepage": "http://github.com/Chumper/datatable",
+        "keywords": [
+            "ajax",
+            "datatables",
+            "jquery",
+            "laravel"
+        ]
     }
 ]

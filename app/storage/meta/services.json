@@ -27,7 +27,8 @@
         "Illuminate\\View\\ViewServiceProvider",
         "Illuminate\\Workbench\\WorkbenchServiceProvider",
         "Cartalyst\\Sentry\\SentryServiceProvider",
-        "Way\\Generators\\GeneratorsServiceProvider"
+        "Way\\Generators\\GeneratorsServiceProvider",
+        "Chumper\\Datatable\\DatatableServiceProvider"
     ],
     "eager": [
         "Illuminate\\Cookie\\CookieServiceProvider",
@@ -38,7 +39,8 @@
         "Illuminate\\View\\ViewServiceProvider",
         "Illuminate\\Workbench\\WorkbenchServiceProvider",
         "Cartalyst\\Sentry\\SentryServiceProvider",
-        "Way\\Generators\\GeneratorsServiceProvider"
+        "Way\\Generators\\GeneratorsServiceProvider",
+        "Chumper\\Datatable\\DatatableServiceProvider"
     ],
     "deferred": {
         "artisan": "Illuminate\\Foundation\\Providers\\ArtisanServiceProvider",

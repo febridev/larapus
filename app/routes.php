@@ -16,9 +16,15 @@ Route::get('/', function()
 	return View::make('guest.index');
 });
 
-Route::get('dashboard',array('before'=>'auth','uses' => 'Homecontroller@dashboard'));
+Route::group(array('before'=>'auth'), function()
+	{
+		Route::get('dashboard','Homecontroller@dashboard');
+		Route::group(array('prefix'=>'admin','before'=>'admin'), function ()
+			{
+				Route::resource('authors', 'AuthorsController');
+			});
+	});
+
 Route::get('login', array('guest.login','uses'=>'GuestController@login'));
 Route::post('authenticate','HomeController@authenticate');
 Route::get('logout','HomeController@logout');
-
-Route::resource('authors', 'AuthorsController');

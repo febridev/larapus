@@ -9,9 +9,19 @@ class AuthorsController extends \BaseController {
 	 */
 	public function index()
 	{
-		$authors = Author::all();
-
-		return View::make('authors.index', compact('authors'));
+		if (Datatable::shouldHandle())
+		{
+			return Datatable::collection(Author::all(array('id','name')))
+				->showColumns('id','name')
+				->addColumn('', function ($model)
+					{
+						return 'edit | hapus';
+					})
+				->searchColumns('name')
+				->orderColumns('name')
+				->make();
+		}
+		return View::make('authors.index')->withTitle('Penulis');
 	}
 
 	/**

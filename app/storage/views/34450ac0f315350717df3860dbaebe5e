@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <title>Perpustakaan Online Dengan</title>
     <link rel="stylesheet" href="<?php echo asset('packages/uikit/css/uikit.almost-flat.min.css'); ?>">
+    <link rel="stylesheet" href="<?php echo asset('css/app.css'); ?>">
     <script src="<?php echo asset('components/jquery/jquery.min.js'); ?>"></script>
     <script src="<?php echo asset('packages/uikit/js/uikit.min.js'); ?>"></script>
+    <?php echo $__env->yieldContent('asset'); ?>
 </head>
 <body>
    <div class="uk-container uk-container-center uk-margin-top">

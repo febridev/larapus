@@ -41,6 +41,15 @@ Route::filter('auth', function()
 	}
 });
 
+Route::filter('admin', function()
+	{
+		$user= Sentry::getUser();
+		//cari group admin
+		$admin= Sentry::findGroupByName('admin');
+		if (!$user->inGroup($admin)){
+			return Redirect::to('dashboard')->with("errorMessage","Silahkan Login Terlebih Dahulu");
+		}
+	});
 
 Route::filter('auth.basic', function()
 {
