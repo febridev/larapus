@@ -1,0 +1,2 @@
+<link rel="stylesheet" href="<?php echo asset ('packages/datatables/css/jquery.dataTables.css'); ?>">
+<script src="<?php echo asset('packages/datatables/js/jquery.dataTables.js'); ?>"></script>

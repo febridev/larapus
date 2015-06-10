@@ -6,9 +6,9 @@
 	"require": {
 		"laravel/framework": "4.2.*",
 		"cartalyst/sentry": "2.1.4",
-		"uikit/uikit": "2.8.*",
+		"uikit/uikit": "2.8",
 		"components/jquery": "2.1.0",
-		"datatables/datatables": "1.10.7",
+		"datatables/datatables": "1.10.0",
 		"chumper/datatable": "2.3"
 	},
 	"require-dev": {

@@ -1,19 +1,24 @@
 
-@import url(http://fonts.googleapis.com/css?family=Raleway:100);
+@font-face {
+	/* RaleWay Thin from - https://www.theleagueofmoveabletype.com, Font Squirrel for Web Font creation with "Adjust Glyph Spacing" -50 */
+    font-family: 'ralewaythin';
+    src: url('font/raleway_thin-webfont.eot');
+    src: url('font/raleway_thin-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font/raleway_thin-webfont.woff') format('woff'),
+         url('font/raleway_thin-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 
 body {
-	font: 90%/1.45em "Helvetica Neue", HelveticaNeue, Arial, Helvetica, sans-serif;
+	font: 90%/1.45em "Helvetica Neue", HelveticaNeue, Verdana, Arial, Helvetica, sans-serif;
 	margin: 0;
 	padding: 0;
 	color: #333;
 	background-color: #fff;
 }
 
-body.dt-example-bootstrap {
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-	font-size: 14px;
-	line-height: 1.42857143;
-}
 
 div.container {
 	max-width: 980px;
@@ -21,7 +26,7 @@ div.container {
 }
 
 h1 {
-	font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Raleway', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+	font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'ralewaythin', 'Helvetica Neue', Arial, Helvetica, sans-serif;
     font-weight: 100;
     letter-spacing: 1px;
 	font-size: 3em;
@@ -200,7 +205,7 @@ code.path {
 }
 
 code.tag {
-	color: #a1a713; /* yellow */
+	color: #cad119; /* yellow */
 	background-color: #f7f8e6;
 	border: 1px solid #D6E9C6;
 }
@@ -242,8 +247,6 @@ code.multiline {
 
 
 ul.tabs {
-	position: relative;
-	top: 1px;
 	height: 40px;
 	margin: 20px 20px 0 0;
 }
@@ -252,7 +255,7 @@ ul.tabs {
 ul.tabs li {
 	display: block;
 	float: left;
-	padding: 0 15px;
+	padding: 0 20px;
 	height: 40px;
 	font-size: 1.2em;
 	margin: 0 5px;
@@ -280,13 +283,8 @@ ul.tabs li.active:hover {
 	background-color: white;
 }
 
-div.tabs {
-	clear: both;
-	margin-top: -1px;
-}
-
 div.tabs>div {
-	padding: 0 15px;
+	padding: 0 20px;
 	border: 1px solid #ccc;
 	margin-top: 1px;
 	display: none;

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f00084919b9b94e36808488bd59df2a7",
+    "hash": "024550fd6a3a7d84c3bd37fe3b57c7ab",
     "packages": [
         {
             "name": "cartalyst/sentry",
@@ -288,16 +288,16 @@
         },
         {
             "name": "datatables/datatables",
-            "version": "1.10.7",
+            "version": "1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DataTables/DataTables.git",
-                "reference": "fc64e71e1cee289da199982d3196b7e43afc0e52"
+                "reference": "4feb8959d534cf38d179af881211891980d7a8d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DataTables/DataTables/zipball/fc64e71e1cee289da199982d3196b7e43afc0e52",
-                "reference": "fc64e71e1cee289da199982d3196b7e43afc0e52",
+                "url": "https://api.github.com/repos/DataTables/DataTables/zipball/4feb8959d534cf38d179af881211891980d7a8d3",
+                "reference": "4feb8959d534cf38d179af881211891980d7a8d3",
                 "shasum": ""
             },
             "type": "library",
@@ -307,7 +307,7 @@
             ],
             "description": "DataTables is a plug-in for the jQuery Javascript library. It is a highly flexible tool, based upon the foundations of progressive enhancement, which will add advanced interaction controls to any HTML table.",
             "homepage": "http://www.datatables.net/",
-            "time": "2015-04-30 14:08:43"
+            "time": "2014-05-01 10:50:51"
         },
         {
             "name": "filp/whoops",
