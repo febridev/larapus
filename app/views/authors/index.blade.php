@@ -9,6 +9,10 @@
 	{{ $title}}
 @stop
 
+@section('title-button')
+	{{HTML::buttonAdd()}}
+@stop
+
 @section('breadcrumb')
 	<li>Dashboard</li>
 	<li>{{ $title }}</li>

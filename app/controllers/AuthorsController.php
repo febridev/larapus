@@ -31,7 +31,7 @@ class AuthorsController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('authors.create');
+		return View::make('authors.create')->withTitle('Tambah Penulis');
 	}
 
 	/**

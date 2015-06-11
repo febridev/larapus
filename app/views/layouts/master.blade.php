@@ -27,7 +27,10 @@
            <ul class="uk-breadcrumb">
                @yield('breadcrumb')
            </ul>
-           <h1 class="uk-heading-large">@yield('title')</h1>
+           <h1 class="uk-heading-large">
+               @yield('title')
+               @yield('title-button')
+           </h1>
             @yield('content')
        </div>
    </div>
