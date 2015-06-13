@@ -27,7 +27,11 @@
            <ul class="uk-breadcrumb">
                <?php echo $__env->yieldContent('breadcrumb'); ?>
            </ul>
-           <h1 class="uk-heading-large"><?php echo $__env->yieldContent('title'); ?></h1>
+           <h1 class="uk-heading-large">
+               <?php echo $__env->yieldContent('title'); ?>
+               <?php echo $__env->yieldContent('title-button'); ?>
+           </h1>
+            <?php echo $__env->make('layouts.partials.validation', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
             <?php echo $__env->yieldContent('content'); ?>
        </div>
    </div>

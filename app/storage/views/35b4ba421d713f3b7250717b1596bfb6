@@ -1,0 +1,18 @@
+<?php $__env->startSection('title'); ?>
+	<?php echo $title; ?> 
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('breadcrumb'); ?>
+	<li><a href="/">dashboard</a></li>
+	<li><a href="<?php echo route('admin.authors.index'); ?>">penulis</a></li>
+	<li class="uk-active"><?php echo $title; ?></li>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+	<?php echo Form::open(array('url'=>route('admin.authors.index'),'method'=>'post', 'class'=>'uk-form uk-form-horizontal')); ?>
+
+		<?php echo $__env->make('authors._form', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	<?php echo Form::close(); ?>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

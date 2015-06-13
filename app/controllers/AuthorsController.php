@@ -15,7 +15,11 @@ class AuthorsController extends \BaseController {
 				->showColumns('id','name')
 				->addColumn('', function ($model)
 					{
-						return 'edit | hapus';
+						$html = '<a href="'.route('admin.authors.edit',['authors'=>$model->id]).'" class="uk-button uk-button-small uk-button-link"> Edit</a>'; 
+						$html .= Form::open(array('url' => route ('admin.authors.destroy', ['authors'=>$model->id]),'method'=>'delete','class'=>'uk-display-inline'));
+						$html .= Form::submit('delete', array('class'=>'uk-button uk-button-small'));
+						$html .= Form::close();
+						return $html;
 					})
 				->searchColumns('name')
 				->orderColumns('name')
@@ -48,9 +52,9 @@ class AuthorsController extends \BaseController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-		Author::create($data);
+		$author=Author::create($data);
 
-		return Redirect::route('authors.index');
+		return Redirect::route('admin.authors.index')->withMessage("successMessage","Berhasil Menyimpan $author->name");
 	}
 
 	/**
@@ -76,7 +80,7 @@ class AuthorsController extends \BaseController {
 	{
 		$author = Author::find($id);
 
-		return View::make('authors.edit', compact('author'));
+		return View::make('authors.edit', ['author'=>$author])->withTitle("Ubah $author->name");
 	}
 
 	/**
@@ -89,7 +93,7 @@ class AuthorsController extends \BaseController {
 	{
 		$author = Author::findOrFail($id);
 
-		$validator = Validator::make($data = Input::all(), Author::$rules);
+		$validator = Validator::make($data = Input::all(), $author->updateRules());
 
 		if ($validator->fails())
 		{
@@ -98,7 +102,7 @@ class AuthorsController extends \BaseController {
 
 		$author->update($data);
 
-		return Redirect::route('authors.index');
+		return Redirect::route('admin.authors.index')->with("successMessage", "Berhasil Menyimpan $author->name");
 	}
 
 	/**
@@ -111,7 +115,7 @@ class AuthorsController extends \BaseController {
 	{
 		Author::destroy($id);
 
-		return Redirect::route('authors.index');
+		return Redirect::route('admin.authors.index')->with('successMessage','Penulis Berhasil Di hapus');
 	}
 
 }

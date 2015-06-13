@@ -1,0 +1,12 @@
+<div class="uk-form-row">
+	<?php echo Form::labelUk('name', 'Nama Penulis'); ?>
+
+	<?php echo Form::textUk('name','Nama Penulis','uk-icon-user'); ?>
+
+</div>
+<?php echo HTML::divider(); ?>
+
+<div class="uk-form-row">
+	<?php echo Form::submitUk('Simpan'); ?>
+
+</div>

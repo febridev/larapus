@@ -9,7 +9,8 @@
 		"uikit/uikit": "2.8",
 		"components/jquery": "2.1.0",
 		"datatables/datatables": "1.10.0",
-		"chumper/datatable": "2.3"
+		"chumper/datatable": "2.3",
+		"ivaynberg/select2": "3.5.0"
 	},
 	"require-dev": {
 		"way/generators": "2.6.*"

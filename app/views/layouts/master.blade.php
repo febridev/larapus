@@ -31,6 +31,7 @@
                @yield('title')
                @yield('title-button')
            </h1>
+            @include('layouts.partials.validation')
             @yield('content')
        </div>
    </div>

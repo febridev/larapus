@@ -2132,5 +2132,50 @@
         ],
         "description": "DataTables is a plug-in for the jQuery Javascript library. It is a highly flexible tool, based upon the foundations of progressive enhancement, which will add advanced interaction controls to any HTML table.",
         "homepage": "http://www.datatables.net/"
+    },
+    {
+        "name": "ivaynberg/select2",
+        "version": "3.5.0",
+        "version_normalized": "3.5.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/select2/select2.git",
+            "reference": "6ef7155df756837e1378230193d95fce1180a7cb"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/select2/select2/zipball/6ef7155df756837e1378230193d95fce1180a7cb",
+            "reference": "6ef7155df756837e1378230193d95fce1180a7cb",
+            "shasum": ""
+        },
+        "require": {
+            "components/jquery": ">=1.7.1",
+            "robloach/component-installer": "*"
+        },
+        "time": "2014-06-16 23:29:53",
+        "type": "component",
+        "extra": {
+            "component": {
+                "scripts": [
+                    "select2.js"
+                ],
+                "files": [
+                    "select2.js",
+                    "select2_locale_*.js",
+                    "select2.css",
+                    "select2-bootstrap.css",
+                    "select2-spinner.gif",
+                    "select2.png",
+                    "select2x2.png"
+                ]
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "description": "Select2 is a jQuery based replacement for select boxes.",
+        "homepage": "http://ivaynberg.github.io/select2/"
     }
 ]

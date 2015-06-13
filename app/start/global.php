@@ -17,7 +17,7 @@ ClassLoader::addDirectories(array(
 	app_path().'/controllers',
 	app_path().'/models',
 	app_path().'/database/seeds',
-	app_path().'/helper/frontend.php',
+	
 
 ));
 
@@ -80,3 +80,13 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
+
+
+/*
+|--------------------------------------------------------------------------
+| Require The Helpers File
+|--------------------------------------------------------------------------
+| Helpers For View Larapus
+|
+*/
+require app_path().'/helpers/frontend.php';
