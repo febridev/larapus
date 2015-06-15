@@ -4,9 +4,9 @@
 </div>
 <div class="uk-form-row">
 	{{ Form::labelUk('author_id','Penulis')}}
-	{{ Form::select('author_id',array(''=>'')+Author::list('name','id'),null, array(
-						'id'=>'author_id',
-						'placeholder'=>"Pilih Penulis"))}}
+	{{ Form::select('author_id',array(''=>'') + Author::lists('name','id'),null, 
+					array( 'id'=>'author_id', 'placeholder'=>"Pilih Penulis")
+					)}}
 </div>
 <div class="uk-form-row">
 	{{ Form::labelUk('amount','Jumlah')}}

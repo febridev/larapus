@@ -7,6 +7,11 @@
 
 <?php $__env->stopSection(); ?>
 
+<?php $__env->startSection('title-button'); ?>
+	<?php echo HTML::buttonAdd(); ?>
+
+<?php $__env->stopSection(); ?>
+
 <?php $__env->startSection('breadcrumb'); ?>
 	<li><a href="/">Dashboard</a></li>
 	<li class="uk-active"><?php echo $title; ?></li>

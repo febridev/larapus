@@ -21,7 +21,13 @@ class BooksController extends \BaseController {
 					})
 				->addColumn('', function($model)
 					{
-						return 'Edit | Delete';
+						$html = '<a href="'.route('admin.books.edit',
+						['books'=>$model->id]).'">Edit </a>';
+
+						$html.= Form::open(array('url'=>route('admin.books.destroy', ['books'=>$model->id]), 'method'=>'delete','class'=>'uk-display-inline'));
+						$html.= Form::submit('delete',array('class'=>'uk-button uk-button-small'));
+						$html.= Form::close();
+						return $html;
 					})
 				->searchColumns('title','amount','author')
 				->orderColumns('title','amount','author')
@@ -54,9 +60,11 @@ class BooksController extends \BaseController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-		Book::create($data);
+		$book = Book::create($data);
 
-		return Redirect::route('books.index');
+
+		return Redirect::route('admin.books.index')->with("successMessage",
+													"Berhasil Menyimpan $book->title");
 	}
 
 	/**
@@ -82,7 +90,8 @@ class BooksController extends \BaseController {
 	{
 		$book = Book::find($id);
 
-		return View::make('books.edit', compact('book'));
+		return View::make('books.edit', ['book'=>$book])
+											->withTitle("Ubah $book->name");
 	}
 
 	/**
@@ -104,7 +113,8 @@ class BooksController extends \BaseController {
 
 		$book->update($data);
 
-		return Redirect::route('books.index');
+		return Redirect::route('admin.books.index')
+					->with("successMessage", "Berhasil Menyimpan $book->title");
 	}
 
 	/**
@@ -117,7 +127,7 @@ class BooksController extends \BaseController {
 	{
 		Book::destroy($id);
 
-		return Redirect::route('books.index');
+		return Redirect::route('admin.books.index')->with("successMessage","Buku Berhasil Di hapus");
 	}
 
 }
