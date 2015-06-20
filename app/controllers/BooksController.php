@@ -60,8 +60,26 @@ class BooksController extends \BaseController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-		$book = Book::create($data);
+		$book = Book::create(Input::except('cover'));
 
+		if(input::hasFile('cover'))
+		{
+			$uploaded_cover = Input::file('cover');
+
+			//mengambil extension file
+			$extension = $uploaded_cover->getClientOriginalExtension();
+
+			//membuat nama file random dengan extension
+			$filename = md5(time()) . '.' .$extension;
+			$destinationPath = public_path() . DIRECTORY_SEPARATOR . 'img';
+
+			//memindahkan file ke folder public/img
+			$uploaded_cover->move($destinationPath, $filename); //25
+
+			//mengisi field cover di book dengan filename yang baru dibuat
+			$book->cover = $filename;
+			$book->save();
+		}
 
 		return Redirect::route('admin.books.index')->with("successMessage",
 													"Berhasil Menyimpan $book->title");
@@ -104,14 +122,50 @@ class BooksController extends \BaseController {
 	{
 		$book = Book::findOrFail($id);
 
-		$validator = Validator::make($data = Input::all(), Book::$rules);
+		$validator = Validator::make($data = Input::all(), $book->updateRules());
 
 		if ($validator->fails())
 		{
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-		$book->update($data);
+		if (Input::hasFile('cover'))
+		{
+			$filename=null;
+			$uploaded_cover = Input::file('cover');
+			$extension = $uploaded_cover->getClientOriginalExtension();
+
+			//membuat nama file random dengan extension
+			$filename = md5(time()) . '.' . $extension;
+			$destinationPath = public_path() . DIRECTORY_SEPARATOR . 'img';
+
+			//memindahkan file ke folder public/img
+			$uploaded_cover->move($destinationPath, $filename);
+
+			//hapus cover lama jika ada
+			if ($book->cover)
+			{
+				$old_cover = $book->cover();
+				$filepath = public_path() . DIRECTORY_SEPARATOR . 'img'
+																	. DIRECTORY_SEPARATOR . $book->cover;
+
+				try
+				{
+					File::delete($filepath);
+				}
+				catch (FileNotFoundException $e)
+				{
+					//file sudah di hapus
+				}
+			}
+			//ganti field cover dengan cover yang baru
+			$book->cover = $filename;
+			$book->save();
+		}
+
+		if (!$book->update(Input::except('cover'))) {
+			return Redirect::back();
+		}
 
 		return Redirect::route('admin.books.index')
 					->with("successMessage", "Berhasil Menyimpan $book->title");
@@ -128,6 +182,13 @@ class BooksController extends \BaseController {
 		Book::destroy($id);
 
 		return Redirect::route('admin.books.index')->with("successMessage","Buku Berhasil Di hapus");
+	}
+
+	public function borrow($id)
+	{
+		$book = Book::findOrFail($id);
+		$book->borrow();
+		return Redirect::back()->with("successMessage","Anda telah meminjam $book->title");
 	}
 
 }

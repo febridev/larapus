@@ -15,7 +15,7 @@ class AuthorsController extends \BaseController {
 				->showColumns('id','name')
 				->addColumn('', function ($model)
 					{
-						$html = '<a href="'.route('admin.authors.edit',['authors'=>$model->id]).'" class="uk-button uk-button-small uk-button-link"> Edit</a>'; 
+						$html = '<a href="'.route('admin.authors.edit',['authors'=>$model->id]).'" class="uk-button uk-button-small uk-button-link"> Edit</a>';
 						$html .= Form::open(array('url' => route ('admin.authors.destroy', ['authors'=>$model->id]),'method'=>'delete','class'=>'uk-display-inline'));
 						$html .= Form::submit('delete', array('class'=>'uk-button uk-button-small'));
 						$html .= Form::close();
@@ -113,8 +113,10 @@ class AuthorsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		Author::destroy($id);
-
+		if (!Author::destroy($id))
+		{
+			return Redirect::back();
+		}
 		return Redirect::route('admin.authors.index')->with('successMessage','Penulis Berhasil Di hapus');
 	}
 

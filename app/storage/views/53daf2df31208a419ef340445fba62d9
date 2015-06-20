@@ -1,0 +1,25 @@
+<?php $__env->startSection('title'); ?>
+  <?php echo $title; ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('asset'); ?>
+  <?php echo $__env->make('layouts.partials.select2', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('breadcrumb'); ?>
+  <li><a href="/">Dashboard</a></li>
+  <li><a href="<?php echo route('admin.books.index'); ?>"></a>Buku</li>
+  <li class="uk-active"><?php echo $title; ?></li>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+  <?php echo Form::model($book, array('url' => route('admin.books.update',['books'=>$book->id]), 'method'=>'put',
+                            'class'=>'uk-form uk-form-horizontal','files'=>'true')); ?>
+
+  <?php echo $__env->make('books._form', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+  <?php echo Form::close(); ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

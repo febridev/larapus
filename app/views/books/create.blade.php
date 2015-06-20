@@ -11,7 +11,7 @@
 @stop
 
 @section('content')
-	{{ Form::open(array('url'=>route('admin.books.store'),'method'=>'post','class'=>'uk-form-horizontal'))}}
+	{{ Form::open(array('url'=>route('admin.books.store'),'method'=>'post','class'=>'uk-form-horizontal','files'=>'true'))}}
 	@include('books._form')
 	{{ Form::close()}}
 @stop

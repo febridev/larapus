@@ -1,0 +1,46 @@
+<div class="uk-form-row">
+	<?php echo Form::labelUk('title','Judul'); ?>
+
+	<?php echo Form::textUk('title','Judul Buku','uk-icon-book'); ?>
+
+</div>
+<div class="uk-form-row">
+	<?php echo Form::labelUk('author_id','Penulis'); ?>
+
+	<?php echo Form::select('author_id',array(''=>'') + Author::lists('name','id'),null,
+					array( 'id'=>'author_id', 'placeholder'=>"Pilih Penulis")
+					); ?>
+
+</div>
+<div class="uk-form-row">
+	<?php echo Form::labelUk('amount','Jumlah'); ?>
+
+	<?php echo Form::textUk('amount','Jumlah Buku','uk-icon-unsorted'); ?>
+
+</div>
+<div class="uk-form-row">
+	<?php echo Form::labelUk('cover','Cover'); ?>
+
+	<div class="form-controls">
+		<?php echo Form::file('cover'); ?>
+
+		<?php if(isset($book) && $book->cover): ?>
+			<p>
+				<?php echo HTML::image(asset('img/'.$book->cover),null,['class'=>'uk-thumbnail-medium']); ?>
+
+			</p>
+		<?php endif; ?>
+	</div>
+</div>
+<?php echo HTML::divider(); ?>
+
+<div class="uk-form-row">
+	<?php echo Form::submitUk('Simpan'); ?>
+
+</div>
+<script>
+	$(document).ready(funtction()
+		{
+			$("#author_id").select2();
+		});
+</script>

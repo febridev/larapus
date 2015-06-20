@@ -6,6 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddCoverToBook' => $baseDir . '/app/database/migrations/2015_06_20_062147_add_cover_to_book.php',
+    'AddForeignKeyToBooks' => $baseDir . '/app/database/migrations/2015_06_20_071746_add_foreign_key_to_books.php',
     'Assetic\\AssetManager' => $vendorDir . '/kriswallsmith/assetic/src/Assetic/AssetManager.php',
     'Assetic\\AssetWriter' => $vendorDir . '/kriswallsmith/assetic/src/Assetic/AssetWriter.php',
     'Assetic\\Asset\\AssetCache' => $vendorDir . '/kriswallsmith/assetic/src/Assetic/Asset/AssetCache.php',
@@ -215,6 +217,7 @@ return array(
     'ComponentInstaller\\Process\\RequireJsProcess' => $vendorDir . '/robloach/component-installer/src/ComponentInstaller/Process/RequireJsProcess.php',
     'ComponentInstaller\\Util\\Filesystem' => $vendorDir . '/robloach/component-installer/src/ComponentInstaller/Util/Filesystem.php',
     'CreateAuthorsTable' => $baseDir . '/app/database/migrations/2015_06_06_044539_create_authors_table.php',
+    'CreateBookUserTable' => $baseDir . '/app/database/migrations/2015_06_20_081017_create_book_user_table.php',
     'CreateBooksTable' => $baseDir . '/app/database/migrations/2015_06_13_150725_create_books_table.php',
     'Crypt_AES' => $vendorDir . '/phpseclib/phpseclib/phpseclib/Crypt/AES.php',
     'Crypt_Base' => $vendorDir . '/phpseclib/phpseclib/phpseclib/Crypt/Base.php',

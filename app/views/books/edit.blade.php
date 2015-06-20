@@ -16,7 +16,7 @@
 
 @section('content')
   {{Form::model($book, array('url' => route('admin.books.update',['books'=>$book->id]), 'method'=>'put',
-                            'class'=>'uk-form uk-form-horizontal'))}}
+                            'class'=>'uk-form uk-form-horizontal','files'=>'true'))}}
   @include('books._form')
   {{ Form::close()}}
 @endsection
