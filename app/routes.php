@@ -18,6 +18,8 @@ Route::get('/', function()
 
 Route::group(array('before'=>'auth'), function()
 	{
+		Route::get('books', array('as'=>'member.books', 'uses'=>'MemberController@books'));
+		Route::get('books/{book}/borrow', array('as' => 'books.borrow','uses'=>'BooksController@borrow' ));
 		Route::get('dashboard','Homecontroller@dashboard');
 		Route::group(array('prefix'=>'admin','before'=>'admin'), function ()
 			{
